@@ -1,0 +1,30 @@
+#include "Animal.hpp"
+
+Animal::Animal()
+{
+    std::cout << "Animal Default Constructor"<< std::endl;
+}
+Animal::Animal(std::string new_type){
+    std::cout <<"Animal Parameterized constructor.";
+    this->type = new_type;
+}
+
+
+Animal &Animal::operator=(const Animal &cpy)
+{
+    std::cout << "Animal = operator." << std::endl;
+    if (this != &cpy)
+        this->type = cpy.type;
+    return (*this);
+}
+Animal::~Animal(){
+    std::cout << "Animal is dead." << std::endl;
+}
+
+
+std::string Animal::getType(void) const{
+    return (this->type);
+}
+void    Animal::makeSound(void) const{
+    std::cout << "Animal Sound" << std::endl;
+}
