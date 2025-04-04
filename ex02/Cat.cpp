@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat() :Animal()
+Cat::Cat() :Animal() , brain(new Brain())
 {
     std::cout << "Cat Default Constructor" << std::endl;
     this->type = "Cat";
@@ -9,14 +9,20 @@ Cat::Cat() :Animal()
 Cat &Cat::operator=(const Cat &cpy) 
 {    
     if (this != &cpy)
+    {
         this->type = cpy.type;
+        delete brain;
+        this->brain = new Brain(*cpy.brain);
+    }
     return (*this);
 }
 
-Cat::Cat(const Cat &cpy) :Animal(cpy){
+Cat::Cat(const Cat &cpy) :Animal(cpy) , brain(new Brain(*cpy.brain)) {
+
     this->type = cpy.type;
 }
 Cat::~Cat(){
+    delete brain;
     std::cout << "Cat is Dead" << std::endl;
 }
 

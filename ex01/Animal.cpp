@@ -11,7 +11,7 @@ Animal::Animal(std::string new_type){
 
 Animal::Animal (const Animal& cpy)
 {
-    std::cout <<"Animal copy constructor\n.";
+    std::cout <<"Animal copy constructor.\n";
     this->type = cpy.type;
 }
 
