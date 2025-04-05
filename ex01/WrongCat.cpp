@@ -20,7 +20,7 @@ WrongCat &WrongCat::operator=(const WrongCat &cpy)
 
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCatl is dead" << std::endl;
+    std::cout << "WrongCat is dead" << std::endl;
 }
 
 void WrongCat::makeSound(void) const

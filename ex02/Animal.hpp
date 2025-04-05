@@ -2,17 +2,19 @@
 #define ANIMAL_H
 
 #include <iostream>
-class Animal{
+
+class Animal {
     protected:
         std::string type;
     public:
         Animal();
         Animal(std::string name);
         Animal(const Animal& cpy);
-        Animal &operator=(const Animal &cpy);
+        Animal& operator=(const Animal& cpy);
         
         virtual ~Animal();
-        virtual void makeSound(void) const = 0;
+        virtual void makeSound(void) const = 0;  // Pure virtual function
         std::string getType(void) const;
 };
+
 #endif

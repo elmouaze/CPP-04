@@ -22,8 +22,8 @@ Dog::Dog(const Dog &cpy):Animal(cpy) , brain(new Brain(*cpy.brain)) {
 }
 
 Dog::~Dog(){
-    delete brain;
     std::cout << "Dog is Dead" << std::endl;
+    delete brain;
 }
 
 void    Dog::makeSound() const{

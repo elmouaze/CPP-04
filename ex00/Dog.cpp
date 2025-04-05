@@ -7,7 +7,7 @@ Dog::Dog():Animal(){
 }
 Dog &Dog::operator=(const Dog &cpy)
 {
-    std::cout << "Cat Copy operator =" << std::endl;
+    std::cout << "Dog Copy operator =" << std::endl;
     if (this != &cpy)
         this->type = cpy.type;
     return (*this);

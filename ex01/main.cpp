@@ -1,34 +1,32 @@
 #include "Animal.hpp"
-#include"Dog.hpp"
+#include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include <cstdlib>
-
+#include "Brain.hpp"
+#include <iostream>
 
 int main()
 {
-    const       int size = 2;
-    Animal*     animals[size];
-    int         index = -1;
-        while (++index < size/2)
-            animals[index] = new Dog();
-
-        while (index < size)
-            animals[index++] = new Cat();
-        
-        while(--index >= 0)
-            animals[index]->makeSound();
-
-        while(++index < size) 
-            delete animals[index];
+    // Create array of Animal objects (half Dog, half Cat)
+    const int size = 4;
+    Animal* animals[size];
     
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;//should not create a leak
-    delete i;
+    // Fill first half with Dogs
+    for (int i = 0; i < size/2; i++)
+        animals[i] = new Dog();
     
-    Dog origin;
-    Dog copy = origin;
+    // Fill second half with Cats
+    for (int i = size/2; i < size; i++)
+        animals[i] = new Cat();
+    
+    // Test each animal
+    for (int i = 0; i < size; i++) {
+        std::cout << animals[i]->getType() << std::endl;
+        animals[i]->makeSound();
+    }
+    
+    // Delete all animals (proper destruction order)
+    for (int i = 0; i < size; i++)
+        delete animals[i];
+    
     return 0;
 }

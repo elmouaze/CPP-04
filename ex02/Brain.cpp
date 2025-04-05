@@ -10,7 +10,7 @@ Brain::Brain(const Brain &cpy)
 {
     int cpt = -1;
 
-    std::cout << "Brain Copy construstor" << std::endl;
+    std::cout << "Brain Copy Constructor" << std::endl;
     while (++cpt < 100)
     {
         this->ideas[cpt] = cpy.ideas[cpt];

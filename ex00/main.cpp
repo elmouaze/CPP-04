@@ -1,31 +1,31 @@
 #include "Animal.hpp"
-#include"Dog.hpp"
+#include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
 int main()
 {
+    // Original test case
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    const WrongAnimal* wr = new WrongCat();
-
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
-        std::cout << meta->getType() << " " << std::endl;
-        i->makeSound(); //cat sound
-        j->makeSound();
-        meta->makeSound();
-        wr->makeSound();
-    Dog tst = *(Dog *)j;
-        std::cout << "-------------------" << std::endl;
-        std::cout << tst.getType() << " " << std::endl;
-        tst.makeSound();
-        std::cout << "--------------------" << std::endl;
+    
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    
+    // Additional test for wrong polymorphism
+    const WrongAnimal* wrongCat = new WrongCat();
+    std::cout << wrongCat->getType() << std::endl;
+    wrongCat->makeSound(); // Should output wrong animal sound, not cat sound
+    // Cleanup
     delete meta;
-    delete i;
     delete j;
-    delete wr;
+    delete i;
+    delete wrongCat;
+    
     return 0;
 }

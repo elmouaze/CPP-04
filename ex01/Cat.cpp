@@ -24,8 +24,8 @@ Cat::Cat(const Cat &cpy) :Animal(cpy) , brain(new Brain(*cpy.brain)) {
     this->type = cpy.type;
 }
 Cat::~Cat(){
-    delete brain;
     std::cout << "Cat is Dead" << std::endl;
+    delete brain;
 }
 
 void    Cat::makeSound() const{
