@@ -8,6 +8,8 @@ Cat::Cat() :Animal() , brain(new Brain())
 }
 Cat &Cat::operator=(const Cat &cpy) 
 {    
+    std::cout << "Cat Copy operator =." << std::endl;
+
     if (this != &cpy)
     {
         this->type = cpy.type;
@@ -18,6 +20,7 @@ Cat &Cat::operator=(const Cat &cpy)
 }
 
 Cat::Cat(const Cat &cpy) :Animal(cpy) , brain(new Brain(*cpy.brain)) {
+    std::cout << "Cat Copy Constructor." << std::endl;
 
     this->type = cpy.type;
 }

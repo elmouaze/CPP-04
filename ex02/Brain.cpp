@@ -10,15 +10,16 @@ Brain::Brain(const Brain &cpy)
 {
     int cpt = -1;
 
+    std::cout << "Brain Copy construstor" << std::endl;
     while (++cpt < 100)
     {
         this->ideas[cpt] = cpy.ideas[cpt];
     }
-    std::cout << "Brain Copy construstor" << std::endl;
 }
 
 Brain &Brain::operator=(const Brain &cpy)
 {    
+    std::cout <<"Brain Copy operator =.\n";
     if (this != &cpy)
     {
         int cpt = -1;

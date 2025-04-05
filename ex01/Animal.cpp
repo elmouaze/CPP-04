@@ -18,6 +18,7 @@ Animal::Animal (const Animal& cpy)
 
 Animal &Animal::operator=(const Animal &cpy)
 {
+    std::cout <<"Animal Copy operator =.\n";
     if (this != &cpy)
         this->type = cpy.type;
     return (*this);

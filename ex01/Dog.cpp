@@ -7,6 +7,7 @@ Dog::Dog():Animal(), brain(new Brain()){
 }
 Dog &Dog::operator=(const Dog &cpy)
 {
+    std::cout << "Dog Copy operator =." << std::endl;
     if (this != &cpy)
     {
         this->type = cpy.type;
@@ -16,6 +17,7 @@ Dog &Dog::operator=(const Dog &cpy)
     return (*this);
 }
 Dog::Dog(const Dog &cpy):Animal(cpy) , brain(new Brain(*cpy.brain)) {
+    std::cout << "Dog Copy Constructor." << std::endl;
     this->type = cpy.type;
 }
 

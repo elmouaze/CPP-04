@@ -10,6 +10,7 @@ WrongAnimal::WrongAnimal(std::string new_name) {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &cpy){
+    std::cout << "WrongAnimal Copy constructor." << std::endl;
     this->type = cpy.type;
 }
 
@@ -20,11 +21,11 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &cpy)
 {
+    std::cout << "WrongAnimal Copy Operator = ." << std::endl;
     if (this != &cpy)
         this->type = cpy.type;
     return (*this);
 }
-
 
 std::string WrongAnimal::getType(void) const{
     return (this->type);

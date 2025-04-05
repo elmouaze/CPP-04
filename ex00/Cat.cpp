@@ -8,12 +8,14 @@ Cat::Cat() :Animal()
 }
 Cat &Cat::operator=(const Cat &cpy) 
 {    
+    std::cout << "Cat copy operator = ." << std::endl;
     if (this != &cpy)
         this->type = cpy.type;
     return (*this);
 }
 
 Cat::Cat(const Cat &cpy) :Animal(cpy){
+    std::cout << "Cat Copy Constructor" << std::endl;
     this->type = cpy.type;
 }
 Cat::~Cat(){
